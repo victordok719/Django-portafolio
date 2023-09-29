@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+
+{% load static %}
+
+<header class="row bg-black">
+    <div class="col-md-4">
+        <img src="{% static 'portafolio/pexels-photo-771742.webp' %}" alt="">
+    </div>
+
+    <div class="col-md-8 my-auto">
+        <h1>I am <strong>Victor Rubio</strong></h1>
+        <h3>I am Python FullStack Developer</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+            Id et fugiat cum dolores ut labore voluptates voluptate dolore iste rem, eveniet facere 
+            harum quasi veniam architecto eligendi corporis quod ipsa?
+        </p>
+        <a href="{% static 'portafolio/CV_RubioGarcia_VictorAlberto.pdf' %}" 
+        class="btn btn-primary btn-lg rounded-0 my-3">Download CV</a>
+
+    </div>
+</header>
+
+
+
+
+<div class="row my-4 text-center">
+    <h3>My Projects</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+{% for project in projects %}
+<div class="col-md-4 p-4">
+    <div class="card bg_black card-project ">
+        <img src={{ project.image.url }} alt={{ project.title }} class="card-img-top">
+        <div class="card-body">
+            <h2>{{ project.title }}</h2>
+            <p>{{ project.description }}</p>
+            
+
+            {% if project.url %}
+                <a href="{{ project.url }}" class="btn btn-light rounder-0 btn-sm" target="_blank">{{ project.utl }}</a>
+            {% endif %}     
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+
+{% endblock %}
+</div>
